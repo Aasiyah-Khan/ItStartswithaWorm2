@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using UnityEngine;
 
 public class WormMovement : MonoBehaviour
@@ -8,10 +9,14 @@ public class WormMovement : MonoBehaviour
     float moveSpeed = 5f;
     public Vector2 MoveInput { get; private set; }
 
+    // state setup
+    public bool hiding;
+
 
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
+        hiding = false;
     }
 
 
@@ -25,6 +30,30 @@ public class WormMovement : MonoBehaviour
      public void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
         MoveInput = context.ReadValue<Vector2>();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "safe")
+        {
+            hiding = true;
+            Debug.Log("Player is safe");
+        }
+    }
+
+
+    // when leaving safe spot
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "safe")
+        {
+            hiding = false;
+            Debug.Log("Player is no longer safe");
+        }
+        else if(collision.gameObject.tag == "shadow" && hiding == false)
+        {
+            Debug.Log("Caught by bird");
+        }
     }
 
 
