@@ -11,12 +11,14 @@ public class WormMovement : MonoBehaviour
 
     // state setup
     public bool hiding;
+    public bool caught;
 
 
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         hiding = false;
+        caught = false;
     }
 
 
@@ -53,8 +55,12 @@ public class WormMovement : MonoBehaviour
         else if(collision.gameObject.tag == "shadow" && hiding == false)
         {
             Debug.Log("Caught by bird");
+            caught = true;
         }
     }
+
+    // coroutine time!!!
+    
 
 
 }

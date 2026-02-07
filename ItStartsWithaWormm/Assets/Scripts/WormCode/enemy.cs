@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class BirdMovement : MonoBehaviour
 {
     // access enemy's rb to move it side to side
@@ -15,6 +16,7 @@ public class BirdMovement : MonoBehaviour
 
     void Start()
     {
+        
         moveRight = true;
         rb = this.gameObject.GetComponent<Rigidbody2D>();
     }
@@ -44,6 +46,8 @@ public class BirdMovement : MonoBehaviour
        
        
     }
+
+
 
    
     
