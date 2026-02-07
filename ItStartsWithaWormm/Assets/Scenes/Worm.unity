@@ -959,6 +959,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WormMovement
   rb: {fileID: 0}
   hiding: 0
+  caught: 0
+  canMove: 0
 --- !u!50 &1760024988
 Rigidbody2D:
   serializedVersion: 5
@@ -1081,7 +1083,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773900434}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1167,7 +1169,7 @@ Transform:
   m_GameObject: {fileID: 1773900434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.52, y: -2.55, z: 0}
+  m_LocalPosition: {x: 1.52, y: -2.54, z: 0}
   m_LocalScale: {x: 2.754, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
