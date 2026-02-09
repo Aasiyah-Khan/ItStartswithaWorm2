@@ -73,6 +73,56 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Bird",
+            "id": "4dae2451-9ff9-45e6-ba81-0225b9e6439f",
+            "actions": [
+                {
+                    "name": "Steer",
+                    "type": "Value",
+                    "id": "52a7ad1b-70ee-4a4b-b705-8489f9b83a7a",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "8e05435c-3996-4789-93a1-556ed1cb81a4",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Negative",
+                    "id": "be66904f-ca46-4366-941f-b9b0bd49bd16",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Positive",
+                    "id": "43cfe685-a824-4f7e-8fe5-5ed2be3fa1be",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
         }
     ],
     "controlSchemes": []
