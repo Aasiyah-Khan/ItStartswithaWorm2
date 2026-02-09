@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WormMovement : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class WormMovement : MonoBehaviour
     
     public bool canMove;
 
+    public Animator animator;
+
+    public GameObject gameManager;
+    //GameManager gameManager;
+
 
     void Start()
     {
@@ -30,6 +36,7 @@ public class WormMovement : MonoBehaviour
     {
         if(canMove == true)
         {
+            
              Vector2 movement = MoveInput * moveSpeed;
             rb.linearVelocity = movement;
         }
@@ -41,6 +48,15 @@ public class WormMovement : MonoBehaviour
     {
        
             MoveInput = context.ReadValue<Vector2>();
+            animator.SetFloat("speed", Mathf.Abs(MoveInput.x));
+            if(MoveInput.x >= 0)
+        {
+            this.gameObject.GetComponent<Transform>().rotation = new Quaternion(0, 0, 0, 0);
+        }
+        else if(MoveInput.x <= 0)
+        {
+             this.gameObject.GetComponent<Transform>().rotation = new Quaternion(0, 180, 0, 0);
+        }
         
         
     }
@@ -51,6 +67,25 @@ public class WormMovement : MonoBehaviour
         {
             hiding = true;
             Debug.Log("Player is safe");
+        }
+        else if(collision.gameObject.tag == "shadow" && hiding == false)
+        {
+            Debug.Log("Caught by bird");
+            caught = true;
+            canMove = false;
+            StartCoroutine(StunWorm());
+
+        }
+        else if(collision.gameObject.tag == "light")
+        {
+            Debug.Log("Slowed by light burns");
+            moveSpeed = 2f;
+        }
+        else if(collision.gameObject.tag == "Beak")
+        {
+            Debug.Log("SceneChanged");
+            gameManager.GetComponent<GameManager>().gameState = 2;
+            SceneManager.LoadScene("Bird");
         }
     }
 
@@ -64,13 +99,10 @@ public class WormMovement : MonoBehaviour
             hiding = false;
             Debug.Log("Player is no longer safe");
         }
-        else if(collision.gameObject.tag == "shadow" && hiding == false)
+        else if(collision.gameObject.tag == "light")
         {
-            Debug.Log("Caught by bird");
-            caught = true;
-            canMove = false;
-            StartCoroutine(StunWorm());
-
+            Debug.Log("Fast Again");
+            moveSpeed = 5f;
         }
     }
 
