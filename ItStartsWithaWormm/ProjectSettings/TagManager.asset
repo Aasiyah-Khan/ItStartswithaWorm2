@@ -8,6 +8,7 @@ TagManager:
   - shadow
   - light
   - Beak
+  - bird
   layers:
   - Default
   - TransparentFX
