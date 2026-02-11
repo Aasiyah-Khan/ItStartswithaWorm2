@@ -4,9 +4,11 @@ public class ShootBird : MonoBehaviour
 {
     // to see if you can even shoot the bird
     bool aimedAt;
+    bool shot;
     void Start()
     {
         aimedAt = false;
+        shot = false;
     }
 
     // Update is called once per frame
@@ -20,6 +22,7 @@ public class ShootBird : MonoBehaviour
         if(aimedAt == true)
         {
             Debug.Log("Bird shot");
+            shot = true;
         }
     }
 
@@ -30,6 +33,10 @@ public class ShootBird : MonoBehaviour
         {
             Debug.Log("Aiming at a bird");
             aimedAt = true;
+            if(shot == true)
+            {
+                
+            }
         }
     }
 
