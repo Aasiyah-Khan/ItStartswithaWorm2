@@ -7,6 +7,9 @@ TagManager:
   - safe
   - shadow
   - treeobstacle
+  - light
+  - Beak
+  - bird
   layers:
   - Default
   - TransparentFX
