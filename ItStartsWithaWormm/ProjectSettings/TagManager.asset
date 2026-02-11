@@ -6,6 +6,7 @@ TagManager:
   tags:
   - safe
   - shadow
+  - tree
   layers:
   - Default
   - TransparentFX

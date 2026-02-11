@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class birdmovement : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class birdmovement : MonoBehaviour
     public float steerSpeed = 180f; //turn speed of bird
     public float steerSmoothing = 4f; //how smooth the birds rotation is
     private float currentSteer; //current steering angle
+    private float nextSceneX = 120f; //x position the sprite must reach to trigger transition to next scene
+    private bool switchScene = false; //checks if the scene changed
     
 
     private Rigidbody2D bird; //instantiates rigidbody component of our bird
@@ -51,5 +54,27 @@ public class birdmovement : MonoBehaviour
     void OnDisable()
     {
         steerAction.action.Disable(); //negative value for rotation
+    }
+    
+    //triggers on collision with spikes
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //if bird collides with tree sprite
+        if (other.CompareTag("tree"))
+        {
+            //reloads the current scene upon tree collision
+            Scene currentscene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentscene.name);
+        }
+    }
+
+    void Update()
+    {
+        //if the bird reaches a certain x position
+        if (!switchScene && bird.position.x >= nextSceneX)
+        {
+            switchScene = true; //checks when the scene switched
+            SceneManager.LoadScene("Worm"); //loads the next scene
+        }
     }
 }
