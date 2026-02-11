@@ -35,7 +35,7 @@ public class ShootBird : MonoBehaviour
             aimedAt = true;
             if(shot == true)
             {
-                
+                collision.gameObject.GetComponent<BirdMove>().dead = true;
             }
         }
     }
