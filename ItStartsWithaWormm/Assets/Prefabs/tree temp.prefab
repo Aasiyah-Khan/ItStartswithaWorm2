@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3904113870174527153}
   - component: {fileID: 5875420023035359290}
   m_Layer: 0
-  m_Name: tree
-  m_TagString: tree
+  m_Name: tree temp
+  m_TagString: treeobstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

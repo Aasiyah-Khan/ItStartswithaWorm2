@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8899880744411530842}
   - component: {fileID: 9065644036762207477}
   m_Layer: 0
-  m_Name: bird
+  m_Name: bird temp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

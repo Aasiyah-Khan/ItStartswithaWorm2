@@ -60,7 +60,7 @@ public class birdmovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //if bird collides with tree sprite
-        if (other.CompareTag("tree"))
+        if (other.CompareTag("treeobstacle"))
         {
             //reloads the current scene upon tree collision
             Scene currentscene = SceneManager.GetActiveScene();
