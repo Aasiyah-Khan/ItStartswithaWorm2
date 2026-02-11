@@ -74,7 +74,7 @@ public class birdmovement : MonoBehaviour
         if (!switchScene && bird.position.x >= nextSceneX)
         {
             switchScene = true; //checks when the scene switched
-            SceneManager.LoadScene("Worm"); //loads the next scene
+            SceneManager.LoadScene("Human"); //loads the next scene
         }
     }
 }
