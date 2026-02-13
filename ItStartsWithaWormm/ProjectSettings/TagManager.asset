@@ -9,6 +9,7 @@ TagManager:
   - light
   - Beak
   - bird
+  - crosshair
   layers:
   - Default
   - TransparentFX
