@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ShootBird : MonoBehaviour
@@ -5,6 +6,8 @@ public class ShootBird : MonoBehaviour
     // to see if you can even shoot the bird
     bool aimedAt;
     bool shot;
+    // so I can edit in editor
+    [SerializeField] private Collider2D hitCollider;
     void Start()
     {
         aimedAt = false;
@@ -19,6 +22,7 @@ public class ShootBird : MonoBehaviour
 
     public void onShoot()
     {
+        Debug.Log("Shot nothing");
         if(aimedAt == true)
         {
             Debug.Log("Bird shot");
@@ -29,13 +33,22 @@ public class ShootBird : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Collision");
-        if(collision.gameObject.tag == "bird")
+        if(collision.gameObject.tag == "bird" )
         {
-            Debug.Log("Aiming at a bird");
-            aimedAt = true;
-            if(shot == true)
+            // to check if just the hit part is touching the bird
+            if (hitCollider.IsTouching(collision))
             {
-                collision.gameObject.GetComponent<BirdMove>().dead = true;
+            Debug.Log("Aiming at a bird");
+            //aimedAt = true;
+            //this.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(this.gameObject.GetComponent<Rigidbody2D>().position.x - 0.2f, this.gameObject.GetComponent<Rigidbody2D>().position.y);
+           // if(shot == true)
+            //{
+                //collision.gameObject.GetComponent<BirdMove>().dead = true;
+           // }
+           StartCoroutine(AimTime(collision));
+           // aimedAt = false;
+          // Debug.Log("no longer able to shoot!");
+           //StartCoroutine(NoAim());
             }
         }
     }
@@ -43,8 +56,36 @@ public class ShootBird : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
          if(collision.gameObject.tag == "bird")
-           {
-           aimedAt = false;
-       }
-     }
+        {
+           //aimedAt = false;
+          // Debug.Log("no longer able to shoot!");
+          StartCoroutine(NoAim());
+        }
+    }
+
+    // a timer givng only a little time to react
+     IEnumerator AimTime(Collider2D collision)
+    {
+        // you are aiming at it
+        aimedAt = true;
+        // if you happen to shoot at this time
+         if(shot == true)
+            {
+                collision.gameObject.GetComponent<BirdMove>().dead = true;
+            }
+            // wait 0.5 secs before moving crosshair by a tiny bit
+        yield return new WaitForSeconds(0.5f);
+        this.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(this.gameObject.GetComponent<Rigidbody2D>().position.x - 0.2f, this.gameObject.GetComponent<Rigidbody2D>().position.y);
+        aimedAt = false;
+       
+        
+
+    }
+
+    IEnumerator NoAim()
+    {
+        yield return new WaitForSeconds(0.5f);
+        aimedAt = false;
+         Debug.Log("no longer able to shoot!");
+    }
 }

@@ -11,6 +11,8 @@ TagManager:
   - Beak
   - bird
   - crosshair
+  - vicinity
+  - hit
   layers:
   - Default
   - TransparentFX
