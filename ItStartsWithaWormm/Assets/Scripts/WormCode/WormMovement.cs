@@ -25,6 +25,7 @@ public class WormMovement : MonoBehaviour
 
     void Start()
     {
+         GameManager.instance.SetWorm(gameObject);
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         hiding = false;
         caught = false;
@@ -84,7 +85,7 @@ public class WormMovement : MonoBehaviour
         else if(collision.gameObject.tag == "Beak")
         {
             Debug.Log("SceneChanged");
-            gameManager.GetComponent<GameManager>().gameState = 2;
+           GameManager.instance.gameState = 2;
             SceneManager.LoadScene("Bird");
         }
     }

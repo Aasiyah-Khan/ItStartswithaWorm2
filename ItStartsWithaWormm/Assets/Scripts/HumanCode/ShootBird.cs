@@ -12,7 +12,9 @@ public class ShootBird : MonoBehaviour
     {
         aimedAt = false;
         shot = false;
+        
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -26,7 +28,22 @@ public class ShootBird : MonoBehaviour
         if(aimedAt == true)
         {
             Debug.Log("Bird shot");
-            shot = true;
+            if(shot == false)
+            {
+                 shot = true;
+            }
+            else
+            {
+                // if(shot == true)
+            //{
+               // collision.gameObject.GetComponent<BirdMove>().dead = true;
+                //shot = false
+            //}
+            // u hv to shoot twice to kill
+                //hitCollider.GetComponentInParent<BirdMove>().dead = true;
+                //shot = false;
+            }
+           
         }
     }
 
@@ -41,10 +58,10 @@ public class ShootBird : MonoBehaviour
             Debug.Log("Aiming at a bird");
             //aimedAt = true;
             //this.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(this.gameObject.GetComponent<Rigidbody2D>().position.x - 0.2f, this.gameObject.GetComponent<Rigidbody2D>().position.y);
-           // if(shot == true)
-            //{
-                //collision.gameObject.GetComponent<BirdMove>().dead = true;
-           // }
+           if(shot == true)
+            {
+                collision.gameObject.GetComponent<BirdMove>().dead = true;
+           }
            StartCoroutine(AimTime(collision));
            // aimedAt = false;
           // Debug.Log("no longer able to shoot!");
@@ -69,10 +86,6 @@ public class ShootBird : MonoBehaviour
         // you are aiming at it
         aimedAt = true;
         // if you happen to shoot at this time
-         if(shot == true)
-            {
-                collision.gameObject.GetComponent<BirdMove>().dead = true;
-            }
             // wait 0.5 secs before moving crosshair by a tiny bit
         yield return new WaitForSeconds(0.5f);
         this.gameObject.GetComponent<Rigidbody2D>().position = new Vector2(this.gameObject.GetComponent<Rigidbody2D>().position.x - 0.2f, this.gameObject.GetComponent<Rigidbody2D>().position.y);

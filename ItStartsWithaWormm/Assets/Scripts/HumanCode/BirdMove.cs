@@ -28,7 +28,12 @@ public class BirdMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(dead == true)
+        {
+            Debug.Log(gameObject.name + " is dead");
+            // hide the bird off screen
+            rb.position =  new Vector2(28f, 1f);       
+        }
     }
 
 
@@ -36,7 +41,7 @@ public class BirdMove : MonoBehaviour
     {
         //Debug.Log("RanMove Started");
         // goes on forever (idk if this is a great idea ngl)
-        while(true)
+        while(dead == false)
         {
           // pick random location
             movePoint = new Vector2(Random.Range(startingX, endingX), Random.Range(startingY, endingY));
@@ -52,7 +57,7 @@ public class BirdMove : MonoBehaviour
             
             }
             // wait before choosing a new location to move toward...
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
         }
         
     }

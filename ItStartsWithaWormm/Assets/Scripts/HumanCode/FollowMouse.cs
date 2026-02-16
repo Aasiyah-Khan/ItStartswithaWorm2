@@ -1,3 +1,4 @@
+using System.Security.AccessControl;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +8,7 @@ public class FollowMouse : MonoBehaviour
     // allows it to be found in the inspect
     [SerializeField]
     private float speed = 10f;
-
+    
     public Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,6 +16,8 @@ public class FollowMouse : MonoBehaviour
     {
         mainCamera = Camera.main;
         rb = this.gameObject.GetComponent<Rigidbody2D>();
+        // hide the cursor
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
