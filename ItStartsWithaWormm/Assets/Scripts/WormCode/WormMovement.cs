@@ -19,6 +19,17 @@ public class WormMovement : MonoBehaviour
 
     public Animator animator;
 
+    public Sprite frame1;
+    public Sprite frame2;
+    public Sprite frame3;
+    public Sprite frame4;
+
+    public Sprite frame5;
+    public Sprite frame6;
+
+    public GameObject Cut;
+
+
     public GameObject gameManager;
     //GameManager gameManager;
 
@@ -84,9 +95,12 @@ public class WormMovement : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Beak")
         {
-            Debug.Log("SceneChanged");
+            //Debug.Log("SceneChanged");
            GameManager.instance.gameState = 2;
-            SceneManager.LoadScene("Bird");
+           // now the cutscene
+           StartCoroutine(CutScene());
+           // change scene
+           
         }
     }
 
@@ -115,6 +129,28 @@ public class WormMovement : MonoBehaviour
         // start movement again
         Debug.Log("Can Move Again");
         canMove = true;
+    }
+
+    IEnumerator CutScene()
+    {
+        Debug.Log("CutScene started!");
+        Cut.GetComponent<SpriteRenderer>().sprite = frame1;
+        yield return new WaitForSeconds(1f);
+        Cut.GetComponent<SpriteRenderer>().sprite = frame2;
+        yield return new WaitForSeconds(1f);
+        Cut.GetComponent<SpriteRenderer>().sprite = frame3;
+        yield return new WaitForSeconds(1f);
+        Cut.GetComponent<SpriteRenderer>().sprite = frame4;
+        yield return new WaitForSeconds(1f);
+        Cut.GetComponent<SpriteRenderer>().sprite = frame5;
+        yield return new WaitForSeconds(1f);
+        Cut.GetComponent<SpriteRenderer>().sprite = frame6;
+        yield return new WaitForSeconds(2f);
+        // change scene
+        GameManager.instance.gameState = 3;
+         SceneManager.LoadScene("Bird");
+
+
     }
 
 

@@ -51,6 +51,7 @@ public void SetWorm(GameObject newWorm)
 
     void FixedUpdate()
     {
+        Debug.Log(gameState);
         if(gameState == 1)
         {
             // reupdate the worm pos
@@ -58,6 +59,11 @@ public void SetWorm(GameObject newWorm)
             // camera follows the worm based on distance
             Camera.main.GetComponent<Transform>().position = new Vector3(wormX + camDiff, Camera.main.GetComponent<Transform>().position.y, -10);
 
+        }
+        else if(gameState == 2)
+        {
+            // move camera to cutscene pos
+            Camera.main.GetComponent<Transform>().position = new Vector3(134.6f, 4.8f, -10);
         }
     }
 }
