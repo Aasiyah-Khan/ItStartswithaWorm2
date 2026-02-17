@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cac8a64b-eb52-43c3-8743-6eb1279e77f5" name="Changes" comment="" />
+    <list default="true" id="cac8a64b-eb52-43c3-8743-6eb1279e77f5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ItStartsWithaWormm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ItStartsWithaWormm/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Bird.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Bird.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BirdCode/bird movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BirdCode/bird movement.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +17,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="39MtIVZZjHOKLeROO7jLvRiQYba" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,6 +29,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "bird",
@@ -103,6 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1770517689708</updated>
       <workItem from="1770517691466" duration="5607000" />
+      <workItem from="1771304440722" duration="6445000" />
     </task>
     <servers />
   </component>
