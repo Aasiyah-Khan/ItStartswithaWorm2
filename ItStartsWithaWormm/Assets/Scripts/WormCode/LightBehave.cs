@@ -25,12 +25,12 @@ public class LightBehave : MonoBehaviour
         {
             yield return new WaitForSeconds(lightAppear);
             // light is on the ground
-            this.gameObject.GetComponent<Transform>().position = new Vector2(this.gameObject.GetComponent<Transform>().position.x, -2.5f);
+            this.gameObject.GetComponent<Transform>().position = new Vector2(this.gameObject.GetComponent<Transform>().position.x, 2.5f);
             //Debug.Log("light on");
             // waiit 2 secs
             yield return new WaitForSeconds(lightRemain);
             // light is hidden offscreen
-           this.gameObject.GetComponent<Transform>().position = new Vector2(this.gameObject.GetComponent<Transform>().position.x, 9.5f);
+           this.gameObject.GetComponent<Transform>().position = new Vector2(this.gameObject.GetComponent<Transform>().position.x, 13.5f);
             //Debug.Log("light off");
         }
        
