@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -101,6 +102,8 @@ public class birdmovement : MonoBehaviour
         if (!switchScene && bird.position.x >= nextSceneX)
         {
             switchScene = true; //checks when the scene switched
+            // plays the cutscene
+
             SceneManager.LoadScene("Human"); //loads the next scene
         }
         
@@ -109,5 +112,10 @@ public class birdmovement : MonoBehaviour
         {
             ResetBird();
         }
+    }
+
+    IEnumerator CutScene()
+    {
+        yield return new WaitForSeconds(1f);
     }
 }
