@@ -92,6 +92,8 @@ public class WormMovement : MonoBehaviour
         {
             Debug.Log("Slowed by light burns");
             moveSpeed = 2f;
+            //triggers the animation
+            animator.SetBool("isWrinkly", true);
         }
         else if(collision.gameObject.tag == "Beak")
         {
@@ -118,6 +120,8 @@ public class WormMovement : MonoBehaviour
         {
             Debug.Log("Fast Again");
             moveSpeed = 5f;
+            //ends the animation
+            animator.SetBool("isWrinkly", false);
         }
     }
 

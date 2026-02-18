@@ -15,6 +15,7 @@ public class birdmovement : MonoBehaviour
     private bool switchScene = false; //checks if the scene changed
     public float maxYfly = 8f; //maximum y value of player sprite before getting reset
     public float minYfly = -8f; //minimum y value of player sprite before getting reset
+    public float minXfly = -10f; //farthest distance on the x axis the bird can go before resetting
     public float shiftX = 2f; // distance the sprite moves on the x when reset
     
 
@@ -66,7 +67,7 @@ public class birdmovement : MonoBehaviour
     void ResetBird()
     {
         //moves the bird to the left slightly and resets y to 0
-        bird.position = new Vector2(bird.position.x - shiftX, 0f);
+        bird.position = new Vector2(bird.position.x, 0f);
         bird.rotation = 0f; //resets birds rotation 
         bird.linearVelocity = Vector2.zero; //stops movement briefly
         currentSteer = 0f; //resets the z rotation of the bird to face right
@@ -107,7 +108,7 @@ public class birdmovement : MonoBehaviour
         }
         
         //active when bird y value is too high or low
-        if (bird.position.y > maxYfly || bird.position.y < minYfly)
+        if (bird.position.y > maxYfly || bird.position.y < minYfly || bird.position.x < minXfly)
         {
             ResetBird();
         }
