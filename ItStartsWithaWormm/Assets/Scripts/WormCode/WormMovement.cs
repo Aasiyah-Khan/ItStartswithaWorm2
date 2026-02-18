@@ -97,8 +97,8 @@ public class WormMovement : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Beak")
         {
+            canMove = false;
             //Debug.Log("SceneChanged");
-           GameManager.instance.gameState = 2;
            // now the cutscene
            StartCoroutine(CutScene());
            // change scene
@@ -121,7 +121,7 @@ public class WormMovement : MonoBehaviour
             Debug.Log("Fast Again");
             moveSpeed = 5f;
             //ends the animation
-            animator.SetBool("isWrinkly", false);
+            //animator.SetBool("isWrinkly", false);
         }
     }
 
@@ -138,6 +138,8 @@ public class WormMovement : MonoBehaviour
     IEnumerator CutScene()
     {
         Debug.Log("CutScene started!");
+        yield return new WaitForSeconds(2f);
+        GameManager.instance.gameState = 2;
         Cut.GetComponent<SpriteRenderer>().sprite = frame1;
         yield return new WaitForSeconds(1f);
         Cut.GetComponent<SpriteRenderer>().sprite = frame2;

@@ -49,13 +49,24 @@ public class BirdMove : MonoBehaviour
             while(Vector2.Distance(rb.position, movePoint) > 0.05f)
             {
                 // the movement
-                rb.MovePosition(Vector2.MoveTowards(rb.position, movePoint, speed * Time.fixedDeltaTime));
+                 Vector2 newPosition = Vector2.MoveTowards(rb.position, movePoint, speed * Time.fixedDeltaTime);
 
+                // Check direction
+                if (newPosition.x < rb.position.x)
+                {
+                     transform.rotation = Quaternion.Euler(0f, 180f, 0f); // facing left
+                 }
+                else
+                {
+                    transform.rotation = Quaternion.Euler(0f, 0f, 0f); // facing right
+                }
+                 rb.MovePosition(newPosition);
                 // so move with the update function
                 yield return new WaitForFixedUpdate();
 
             
             }
+
             // wait before choosing a new location to move toward...
             yield return new WaitForSeconds(0.3f);
         }

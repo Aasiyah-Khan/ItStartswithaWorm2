@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ShootBird : MonoBehaviour
 {
+    public AudioSource shooting;
     // to see if you can even shoot the bird
     bool aimedAt;
     bool shot;
@@ -24,6 +25,7 @@ public class ShootBird : MonoBehaviour
 
     public void onShoot()
     {
+        shooting.Play();
         Debug.Log("Shot nothing");
         if(aimedAt == true)
         {
